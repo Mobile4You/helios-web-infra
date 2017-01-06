@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hostname:</strong>
+  <%= @instance.hostname %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @instance.profile_id %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @instance.region %>
+</p>
+
+<%= link_to 'Edit', edit_instance_path(@instance) %> |
+<%= link_to 'Back', instances_path %>
