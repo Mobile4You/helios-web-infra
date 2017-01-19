@@ -1,6 +1,6 @@
 class HeliosConnector 
   include HTTParty
-  base_uri ENV['STORE_URL'] || 'localhost:3001'
+  base_uri ENV['HELIOS_URL'] || 'localhost:3001'
 
   def hosts
     response = self.class.get('/hosts') 
