@@ -1,41 +1,20 @@
-<% @profiles.each.do |profile| %>
-  <div class="row">
-    <%= profile.name %>
-  </div>
-<% end %>
+
+<% @profiles.each do |profile| %>
 <div class="row">
-
-  <% @instances.each do |i| %>
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-desktop fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge-small"><%= i[:name] %></div>
-            <div><%= instance_status(i[:status]["status"]) %></div>
-          </div>
-        </div>
-      </div>
-      <div class="panel-footer">
-        <ul class="list-group">
-          <% i[:status]["statuses"].each do |k, v| %>
-          <li class="list-group-item">
-            <%= k.split(':')[0..1].join(':') %>
-            <%= link_to "ci", "http://thundera/jenkins/job/#{k.split(':').first}/#{k.split(':')[1].split('-').first}", class: 'float-right' %>
-          </li>
-          <% end %>
-
-        </ul>
-        <div class="pull-right">
-          <!-- botoes -->
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
+  <h2><%= profile.name %></h2>
+  <% 
+  profile.instances.each do |i|
+    instance_info = @instances.select { |e| e[:hostname] == i.hostname }.first %>
+    <%= render partial: "item", locals: { instance_info: instance_info } %>
   <% end %>
 </div>
+<% end %>
+
+<div class="row">
+  <h2>Sem Profiles</h2>
+  <% @instances.select{ |e| e[:profile] == false }.each do |instance_info| %>
+    <%= render partial: "item", locals: { instance_info: instance_info } %>
+  <% end %>
+</div>
+
 

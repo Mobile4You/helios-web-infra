@@ -3,7 +3,7 @@ class SiteController < ApplicationController
   def index
     @profiles = Profile.all
     hosts = helios.hosts
-    @instances = hosts.map{ |e| { name: e, status: helios.status(e) } }
+    @instances = hosts.map{ |e| { hostname: e, status: helios.status(e), profile: !Instance.find_by_hostname(e).nil? } }
   end
 
   private

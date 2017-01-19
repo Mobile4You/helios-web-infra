@@ -16,7 +16,7 @@
     <% @instances.each do |instance| %>
       <tr>
         <td><%= instance.hostname %></td>
-        <td><%= instance.profile_id %></td>
+        <td><%= instance.profile.name %></td>
         <td><%= instance.region %></td>
         <td><%= link_to 'Show', instance %></td>
         <td><%= link_to 'Edit', edit_instance_path(instance) %></td>

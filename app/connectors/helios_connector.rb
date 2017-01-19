@@ -1,6 +1,6 @@
 class HeliosConnector 
   include HTTParty
-  base_uri 'cielo-helios.prd.dcd.m4u:8080'
+  base_uri ENV['STORE_URL'] || 'localhost:3001'
 
   def hosts
     response = self.class.get('/hosts') 

@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :profile_id %>
-    <%= f.text_field :profile_id %>
+    <%= f.select 'profile_id', @profiles.collect{ |p| [p.name, p.id] } %>
   </div>
 
   <div class="field">

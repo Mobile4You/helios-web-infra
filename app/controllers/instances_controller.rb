@@ -15,6 +15,7 @@ class InstancesController < ApplicationController
   # GET /instances/new
   def new
     @instance = Instance.new
+    @profiles = Profile.all
   end
 
   # GET /instances/1/edit
@@ -26,11 +27,15 @@ class InstancesController < ApplicationController
   def create
     @instance = Instance.new(instance_params)
 
+    puts instance_params.to_h
+    puts @instance.to_json
+
     respond_to do |format|
       if @instance.save
         format.html { redirect_to @instance, notice: 'Instance was successfully created.' }
         format.json { render :show, status: :created, location: @instance }
       else
+        @profiles = Profile.all
         format.html { render :new }
         format.json { render json: @instance.errors, status: :unprocessable_entity }
       end
@@ -69,6 +74,6 @@ class InstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instance_params
-      params.require(:instance).permit(:hostname, :profile_id_id, :region, :profile_id)
+      params.require(:instance).permit(:hostname, :region, :profile_id)
     end
 end
