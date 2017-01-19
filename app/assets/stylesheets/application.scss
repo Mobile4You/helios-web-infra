@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap
+ *= require theme/metisMenu/metisMenu
+ *= require theme/timeline
+ *= require theme/sb-admin-2
+ *= require theme/mixins
+ *= require theme/variables
+ *= require theme/morrisjs/morris.core
+ *= require theme/font-awesome/font-awesome
+ */
+
+.instance-box {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  width: 18em;
+}
+
+.deploy-form {
+  padding: 0.5em;
+}
+
+.form-inline {
+  display: inline;
+}
+
+.float-right {
+  float: right;
+}
+
+samp {
+  background: #000;
+  border: 3px groove #ccc;
+  color: #ccc;
+  display: block;
+  padding: 5px;
+}
+
+.container_tips {
+  width: 100%; min-height: 800px;
+}
+
+.tips_painel {
+  width: 25%;
+  margin: 0 auto;
+  float: left;
+}
+
+.console_painel {
+  float: left;
+  width: 70%;
+}
+

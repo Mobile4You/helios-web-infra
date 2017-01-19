@@ -1,0 +1,29 @@
+<div class="col-lg-3 col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-3">
+          <i class="fa fa-desktop fa-5x"></i>
+        </div>
+        <div class="col-xs-9 text-right">
+          <div class="huge-small"><%= instance_info[:hostname] %></div>
+          <div><%= instance_status(instance_info[:status]["status"]) %></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <ul class="list-group">
+        <% instance_info[:status]["statuses"].each do |k, v| %>
+        <li class="list-group-item">
+          <%= k.split(':')[0..1].join(':') %>
+          <%= link_to "ci", "http://thundera/jenkins/job/#{k.split(':').first}/#{k.split(':')[1].split('-').first}", class: 'float-right' %>
+        </li>
+        <% end %>
+      </ul>
+      <div class="pull-right">
+        <!-- botoes -->
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
