@@ -11,17 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :key %>
-    <%= f.text_field :key %>
-  </div>
+    <table>
+      <tr>
+        <div class="field">
+          <td><%= f.label :name %></td>
+          <td><%= f.text_field :name %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="field">
+          <td><%= f.label :key %></td>
+          <td><%= f.text_field :key %></td>
+        </div>
+      </tr>
+    </table><br><br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary btn-lg"%><br><br><br><br><br>
   </div>
 <% end %>

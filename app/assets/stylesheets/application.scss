@@ -19,6 +19,9 @@
  *= require theme/morrisjs/morris.core
  *= require theme/font-awesome/font-awesome
  */
+ body {
+    background:#d1dffa !important;
+ }
 
 .instance-box {
   margin-left: 1em;
@@ -60,4 +63,3 @@ samp {
   float: left;
   width: 70%;
 }
-

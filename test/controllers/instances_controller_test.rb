@@ -6,7 +6,8 @@ class InstancesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get instances_url
+    # get instances_url
+    get instances_path
     assert_response :success
   end
 
