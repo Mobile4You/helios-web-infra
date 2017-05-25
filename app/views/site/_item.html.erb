@@ -19,7 +19,7 @@
           <%= k.split(':')[0..1].join(':') %>
            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="float: right;"><i class="fa fa-tachometer" aria-hidden="true"></i>
              <span class="caret"></span></button>
-               <ul class="dropdown-menu">
+               <ul class="dropdown-menu pull-right">
                 <li><%= link_to image_tag("jenkins.png"), check_jenkins(link_aux), target: "_blank", class: 'float-right' %></li>
                 <li><%= link_to image_tag("new_relic.png"), check_new_relic(link_aux), target: "_blank", class: 'float-right' %></li>
                 <li><%= link_to image_tag("kibana.png"), check_kibana(link_aux), target: "_blank", class: 'float-right' %></li>
