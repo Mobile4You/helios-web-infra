@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :hostname %>
-    <%= f.text_field :hostname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :profile_id %>
-    <%= f.select 'profile_id', @profiles.collect{ |p| [p.name, p.id] } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :region %>
-    <%= f.text_field :region %>
-  </div>
+  <table>
+    <tr>
+    <div class="field">
+      <td><%= f.label :hostname %></td>
+      <td><%= f.text_field :hostname %></td>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+      <td><%= f.label :profile_id %></td>
+      <td><%= f.select 'profile_id', @profiles.collect{ |p| [p.name, p.id] } %></td>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+      <td><%= f.label :region %></td>
+      <td><%= f.text_field :region %></td>
+    </div>
+    </tr>
+  </table><br><br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary btn-lg"%><br><br><br><br><br>
   </div>
 <% end %>
