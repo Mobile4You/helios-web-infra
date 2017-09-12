@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20161228222247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "instances", force: :cascade do |t|
     t.string   "hostname",   null: false
     t.integer  "profile_id", null: false
     t.string   "region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hostname"], name: "index_instances_on_hostname", unique: true
-    t.index ["profile_id"], name: "index_instances_on_profile_id"
+    t.index ["hostname"], name: "index_instances_on_hostname", unique: true, using: :btree
+    t.index ["profile_id"], name: "index_instances_on_profile_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -27,8 +30,9 @@ ActiveRecord::Schema.define(version: 20161228222247) do
     t.string   "key",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["key"], name: "index_profiles_on_key", unique: true
-    t.index ["name"], name: "index_profiles_on_name", unique: true
+    t.index ["key"], name: "index_profiles_on_key", unique: true, using: :btree
+    t.index ["name"], name: "index_profiles_on_name", unique: true, using: :btree
   end
 
+  add_foreign_key "instances", "profiles"
 end
