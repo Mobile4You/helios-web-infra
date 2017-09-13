@@ -7,8 +7,10 @@
         <div class="container">
 
 
-          <h3>Apps instalados na LIO</h3>
-          <table class="table">
+          <h3>Apps instalados na LIO</h3><br>
+          <%= submit_tag("Clean", class:"btn btn-primary btn-md", method: :clean_cache_memory, data: { confirm: 'Are you sure?' }) %><br>
+
+          <table class="table"><br>
             <thead>
               <tr>
                 <th>Nome</th>
@@ -19,7 +21,7 @@
                 <% @apps.each do |app| %>
                   <tr><td><%= app["name"] %></td>
                   <td><%= app["version"] %></td>
-                  <td><button style="font-size:12px">Clean <i class="fa fa-rebel"></td></tr>
+                  </tr>
                 <% end %>
             </tbody>
           </table>

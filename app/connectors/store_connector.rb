@@ -6,10 +6,10 @@ class StoreConnector < ApplicationConnector
 
   def get_terminal_apps(merchant_id, number)
     headers = { 'Merchant-Id' => merchant_id }
-    response = self.class.get('/api/v2/terminals', query: { merchant_id: merchant_id, number: number }, headers: { 'Merchant-Id' => merchant_id })
+    response = self.class.get('/api/v2/terminals', query: { merchant_id: merchant_id, number: number }, headers: { 'Merchant-Id' => merchant_id, 'Content-Type' => 'application/json' })
     if success?(response)
       terminal_id = JSON.parse(response.body)[0]['id']
-      apps_response = self.class.get("/api/v2/terminals/#{terminal_id}/apps", headers: headers)
+      apps_response = self.class.get("/api/v2/terminals/#{terminal_id}/apps_versions_blocked", headers: headers )
       return apps_response.parsed_response if apps_response.respond_to?(:parsed_response)
     end
     []
