@@ -8,8 +8,7 @@
 
 
           <h3>Apps instalados na LIO</h3><br>
-          <%= submit_tag("Clean", class:"btn btn-primary btn-md", method: :clean_cache_memory, data: { confirm: 'Are you sure?' }) %><br>
-
+          <%= link_to 'Clean', redis_path, class:"btn btn-primary btn-md" %><br>
           <table class="table"><br>
             <thead>
               <tr>
