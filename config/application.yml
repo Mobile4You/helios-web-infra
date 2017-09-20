@@ -1,4 +1,0 @@
-development:
-  REDIS_URL: 'redis://123456@127.0.0.1:6379'
-test:
-  REDIS_URL: 'redis://:123456@127.0.0.1:6379'
