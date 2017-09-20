@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+          <%= form_tag("/apps", method: "get") do %>
+          <div class="col-lg-12 text-center">
+              <h1>LIO</h1>
+              <p class="lead"></p>
+              <ul class="list-unstyled">
+                <div class="form-group">
+                  <%= label_tag(:merchant_id, "") %>
+                  <%= text_field_tag :merchant_id, params[:merchant_id], required: true, placeholder:"EC" %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:number, "") %>
+                  <%= text_field_tag :number, params[:number], required: true, placeholder:"NL" %><br><br>
+                  <%= submit_tag("OK", class:"btn btn-primary btn-md") %>
+
+                  <% flash.each do |key, value| %>
+                    <%= content_tag :div, value, class: "flash #{key}" %>
+                  <% end %>
+
+                </div>
+              </ul>
+          </div>
+          <% end %>
+
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+</body>
+
+</html>

@@ -1,9 +1,9 @@
-<div class="col-lg-3 col-md-6">
+<div class="col-lg-4 col-md-6">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <div class="row">
         <div class="col-xs-3">
-          <i class="fa fa-desktop fa-5x"></i>
+          <i class="fa fa-desktop fa-4x"></i>
         </div>
         <div class="col-xs-9 text-right">
           <div class="huge-small"><%= instance_info[:hostname] %></div>
@@ -14,9 +14,17 @@
     <div class="panel-footer">
       <ul class="list-group">
         <% instance_info[:status]["statuses"].each do |k, v| %>
+          <% link_aux = "#{k.split(':').first}" %>
         <li class="list-group-item">
           <%= k.split(':')[0..1].join(':') %>
-          <%= link_to "ci", "http://thundera/jenkins/job/#{k.split(':').first}/#{k.split(':')[1].split('-').first}", class: 'float-right' %>
+           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="float: right;"><i class="fa fa-tachometer" aria-hidden="true"></i>
+             <span class="caret"></span></button>
+               <ul class="dropdown-menu pull-right">
+                <li><%= link_to image_tag("jenkins.png"), check_jenkins(link_aux), target: "_blank", class: 'float-right' %></li>
+                <li><%= link_to image_tag("new_relic.png"), check_new_relic(link_aux), target: "_blank", class: 'float-right' %></li>
+                <li><%= link_to image_tag("kibana.png"), check_kibana(link_aux), target: "_blank", class: 'float-right' %></li>
+              </ul>
+        </li>
         </li>
         <% end %>
       </ul>

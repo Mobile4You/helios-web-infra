@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <!-- Page Content -->
+        <div class="container">
+
+
+          <h3>Apps instalados na LIO</h3><br>
+          <%= link_to 'Clean', redis_path, class:"btn btn-primary btn-md" %><br>
+          <table class="table"><br>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Versão</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @apps.each do |app| %>
+                  <tr><td><%= app["name"] %></td>
+                  <td><%= app["version"] %></td>
+                  </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- /.row -->
+    <!-- /.container -->
+
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  
+
   def index
     @profiles = Profile.all
     hosts = helios.hosts
@@ -11,4 +11,5 @@ class SiteController < ApplicationController
   def helios
     HeliosConnector.new
   end
+
 end
