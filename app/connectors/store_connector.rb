@@ -16,12 +16,12 @@ class StoreConnector < ApplicationConnector
   end
 
   def get_terminal_uuid(merchant_id, number)
-    headers = { 'Merchant-Id' => merchant_id }
-    response = self.class.get('/api/v2/terminals', query: { merchant_id: merchant_id, number: number }, headers: { 'Merchant-Id' => merchant_id, 'Content-Type' => 'application/json' })
-    if success?(response)
-      terminal_id = JSON.parse(response.body)[0]['id']
+      headers = { 'Merchant-Id' => merchant_id }
+      response = self.class.get('/api/v2/terminals', query: { merchant_id: merchant_id, number: number }, headers: { 'Merchant-Id' => merchant_id, 'Content-Type' => 'application/json' })
+      if success?(response)
+        terminal_id = JSON.parse(response.body)[0]['id']
+      end
+        terminal_id
     end
-      terminal_id
-  end
-
+    
 end

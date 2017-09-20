@@ -2,5 +2,5 @@
 
 # We need check if feature is aneble on environment
 # if(Throttle::Version.enabled?)
-#   RedisConnector.connection
+  RedisConnector.connection
 # end

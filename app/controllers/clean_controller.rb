@@ -16,15 +16,18 @@ class CleanController < ApplicationController
       end
   end
 
+private
+
   def clean_cache_memory
+
     terminal_uuid = StoreConnector.new
                             .get_terminal_uuid(params[:merchant_id], params[:number])
-    @apps = StoreConnector.new
+    apps = StoreConnector.new
                             .get_terminal_apps(params[:merchant_id], params[:number])
-    @redis = RedisConnector.new
+    redis = RedisConnector.new
 
-    @apps.each do |version|
-      @redis.expire("#{VERSION_TROTTLE}|#{terminal_uuid}|#{version.uuid}", 0)
+    apps.each do |version|
+      redis.expire("#{VERSION_TROTTLE}|#{terminal_uuid}|#{version["id"]}", 0)
     end
       render :result_clean_cache
   end

@@ -25,7 +25,7 @@ class RedisConnector
 
   def handler_exception
     yield
-  rescue Redis::CommandError
+    rescue Redis::CommandError
     @fail_number += 1
     raise(StandardError, 'Fail stablish redis conection ') if @fail_number > 3
     Rails.logger.error(fail: 'Fail redis. try recovery')
