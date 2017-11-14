@@ -8,7 +8,7 @@ class SiteController < ApplicationController
     respond_to do |format|
       format.html
       format.json do 
-        render json: prepare_json(@instances)
+        render json: { items: prepare_json(@instances) }
       end
     end
   end
